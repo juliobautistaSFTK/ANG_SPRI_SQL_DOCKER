@@ -9,16 +9,15 @@ services:
     ports:
       - "3306:3306"
 
-  backend:
-    build: ./backend
-    ports:
-      - "8080:8080"
-    depends_on:
-      - mysql
-
   frontend:
     build: ./frontend
     ports:
       - "4200:4200"
-    depends_on:
-      - backend
+
+  backend:
+    build: ./backend
+    ports:
+      - "8080:8080"
+
+
+
