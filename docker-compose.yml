@@ -9,7 +9,7 @@ services:
     ports:
       - "3306:3306"
 
-   backend:
+  backend:
     build: ./backend
     ports:
       - "8080:8080"
