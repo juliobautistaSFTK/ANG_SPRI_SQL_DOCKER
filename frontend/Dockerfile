@@ -1,5 +1,5 @@
-# Usa una imagen base de Node.js para la instalación de Angular
-FROM node:16 AS build
+# Usa una imagen base de Node.js 18 (o superior)
+FROM node:18 AS build
 
 # Configura el directorio de trabajo en el contenedor
 WORKDIR /src/app
@@ -8,7 +8,7 @@ WORKDIR /src/app
 COPY package*.json ./
 
 # Instala las dependencias de Angular
-RUN npm install -g @angular/cli
+RUN npm install
 
 # Copia el código fuente al contenedor
 COPY . .
@@ -20,9 +20,9 @@ RUN npm run build
 FROM nginx:alpine
 
 # Copia los archivos de build generados al contenedor de nginx
-COPY --from=build /app/dist/ /usr/share/nginx/html
+COPY --from=build /src/app/dist/ /usr/share/nginx/html
 
-# Expon el puerto 80 para que se pueda acceder a la app
+# Expone el puerto 80 para que se pueda acceder a la app
 EXPOSE 80
 
 # Inicia nginx en el contenedor
