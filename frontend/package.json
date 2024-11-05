@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --host 0.0.0.0",   // Cambia el host para permitir acceso externo
+    "start": "ng serve --host localhost",   // Cambia el host para permitir acceso externo
     "build": "ng build",                   // Script de compilación
     "test": "ng test",
     "lint": "ng lint",
