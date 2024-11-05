@@ -2,7 +2,7 @@
 FROM node:16 AS build
 
 # Configura el directorio de trabajo en el contenedor
-WORKDIR /app
+WORKDIR /src/app
 
 # Copia el archivo package.json y package-lock.json
 COPY package*.json ./
