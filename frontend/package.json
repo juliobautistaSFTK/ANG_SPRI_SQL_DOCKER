@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --host localhost",   // Cambia el host para permitir acceso externo
-    "build": "ng build",                   // Script de compilación
+    "start": "ng serve --host localhost",   
+    "build": "ng build",  
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
@@ -23,7 +23,7 @@
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
-    "@angular/cli": "^12.0.0",            // Necesario para ejecutar "ng"
+    "@angular/cli": "^12.0.0",        
     "@angular/compiler-cli": "^12.0.0",
     "typescript": "~4.2.3"
   }
