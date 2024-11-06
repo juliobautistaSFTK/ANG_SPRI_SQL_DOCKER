@@ -18,15 +18,7 @@ import 'core-js/es/array/includes';
 /** Polyfill para `Symbol`, necesario para trabajar con ciertas bibliotecas */
 import 'core-js/es/symbol';
 
-/** Polyfill para `fetch`, utilizado para hacer peticiones HTTP */
-import 'whatwg-fetch';
-
 /***************************************************************************************************
  * Fase de configuración y arranque de Angular
  **************************************************************************************************/
 
-/** Importación de la API de "IntersectionObserver" para detectar cuando un elemento entra o sale de la vista */
-import 'intersection-observer';
-
-/** Polyfill necesario para `console.table` en algunos navegadores más antiguos */
-import 'console-table-printer';
