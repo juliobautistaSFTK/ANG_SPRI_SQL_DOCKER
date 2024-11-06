@@ -14,6 +14,8 @@
 
     <properties>
         <java.version>11</java.version>
+        <!-- Definir versión de Spring Boot -->
+        <spring-boot.version>2.5.4</spring-boot.version> <!-- Cambia esta versión según sea necesario -->
     </properties>
 
     <dependencies>
@@ -21,7 +23,6 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
-            <version>2.5.4</version> <!-- Asegúrate de usar una versión compatible -->
         </dependency>
 
         <!-- Dependencia de MySQL Connector -->
@@ -38,7 +39,7 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <version>2.5.4</version> <!-- Versión compatible con tu Spring Boot -->
+                <version>${spring-boot.version}</version> <!-- Usa la propiedad para la versión -->
             </plugin>
         </plugins>
     </build>
