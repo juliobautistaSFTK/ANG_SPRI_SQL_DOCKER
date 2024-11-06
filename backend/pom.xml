@@ -60,7 +60,7 @@
             <configuration>
                 <archive>
                     <manifestEntries>
-                        <Main-Class>com.example.SpringBootApp</Main-Class> <!-- Asegúrate de poner la clase correcta -->
+                        <Main-Class>SpringBootApp</Main-Class> <!-- Asegúrate de poner la clase correcta -->
                     </manifestEntries>
                 </archive>
             </configuration>
