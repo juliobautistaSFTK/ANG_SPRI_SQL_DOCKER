@@ -12,14 +12,26 @@
     <name>backend</name>
     <description>Demo project for Spring Boot</description>
 
-    <!-- Definir la versión de Spring Boot aquí -->
     <properties>
         <java.version>11</java.version>
-        <spring-boot.version>2.5.4</spring-boot.version> <!-- Versión de Spring Boot -->
+        <spring-boot.version>2.5.4</spring-boot.version> <!-- O cualquier otra versión de Spring Boot -->
     </properties>
 
+    <dependencyManagement>
+        <dependencies>
+            <!-- BOM de Spring Boot -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot.version}</version>
+                <scope>import</scope>
+                <type>pom</type>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
     <dependencies>
-        <!-- Dependencia de Spring Boot Starter Web, ahora sin especificar versión -->
+        <!-- Dependencia de Spring Boot Starter Web (sin versión, ya es gestionada por el BOM) -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
