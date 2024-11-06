@@ -14,12 +14,12 @@
 
     <properties>
         <java.version>11</java.version>
-        <spring-boot.version>2.5.4</spring-boot.version> <!-- Usa la versión de Spring Boot que prefieras -->
+        <spring-boot.version>2.5.4</spring-boot.version>
     </properties>
 
     <dependencyManagement>
         <dependencies>
-            <!-- Importamos el BOM de Spring Boot para gestionar versiones de dependencias -->
+            <!-- Importar el BOM de Spring Boot -->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
@@ -41,21 +41,27 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>8.0.26</version> <!-- Ajusta la versión según lo que necesites -->
+            <version>8.0.26</version>
         </dependency>
     </dependencies>
 
     <build>
         <plugins>
-            <!-- Plugin de Spring Boot para empaquetar como JAR ejecutable -->
+            <!-- Plugin de Spring Boot para empaquetar el JAR con todas las dependencias -->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <version>${spring-boot.version}</version> <!-- Usa la versión definida -->
+                <version>${spring-boot.version}</version> <!-- Versión de Spring Boot -->
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
 
-            <!-- Si deseas configurar el archivo MANIFEST a mano (en caso de usar Maven Jar Plugin) -->
-            <!-- El plugin Spring Boot se encarga de crear el archivo ejecutable, pero esto es opcional -->
+            <!-- Plugin adicional de Maven para generar el archivo JAR -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
@@ -63,7 +69,6 @@
                 <configuration>
                     <archive>
                         <manifestEntries>
-                            <!-- Especificar la clase principal -->
                             <Main-Class>com.example.SpringBootApp</Main-Class>
                         </manifestEntries>
                     </archive>
