@@ -1,1 +1,17 @@
+{
+  "name": "frontend",
+  "version": "1.0.0",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve"
+  },
+  "dependencies": {
+    "@angular/core": "^12.0.0",
+    "@angular/common": "^12.0.0",
+    "@angular/platform-browser": "^12.0.0",
+    "@angular/platform-browser-dynamic": "^12.0.0",
+    "rxjs": "~6.6.0",
+    "zone.js": "~0.11.4"
+  }
+}
 
