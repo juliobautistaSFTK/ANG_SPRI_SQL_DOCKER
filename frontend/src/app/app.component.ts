@@ -10,8 +10,8 @@ import { HttpClient } from '@angular/common/http';
   `
 })
 export class AppComponent {
-  clave: number;
-  descripcion: string;
+  clave: number = 0;  // Inicializamos con un valor predeterminado
+  descripcion: string = '';  // Inicializamos con una cadena vacía
 
   constructor(private http: HttpClient) {}
 
