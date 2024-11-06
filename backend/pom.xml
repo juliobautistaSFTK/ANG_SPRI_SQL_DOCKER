@@ -53,6 +53,18 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>${spring-boot.version}</version> <!-- Usa la propiedad para la versión -->
             </plugin>
+            <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-jar-plugin</artifactId>
+            <version>3.1.0</version>
+            <configuration>
+                <archive>
+                    <manifestEntries>
+                        <Main-Class>com.example.SpringBootApp</Main-Class> <!-- Asegúrate de poner la clase correcta -->
+                    </manifestEntries>
+                </archive>
+            </configuration>
+           </plugin>
         </plugins>
     </build>
 </project>
