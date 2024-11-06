@@ -14,12 +14,12 @@
 
     <properties>
         <java.version>11</java.version>
-        <spring-boot.version>2.5.4</spring-boot.version> <!-- O cualquier otra versión de Spring Boot -->
+        <spring-boot.version>2.5.4</spring-boot.version> <!-- Usa la versión de Spring Boot que prefieras -->
     </properties>
 
     <dependencyManagement>
         <dependencies>
-            <!-- BOM de Spring Boot -->
+            <!-- Importamos el BOM de Spring Boot para gestionar versiones de dependencias -->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
@@ -31,7 +31,7 @@
     </dependencyManagement>
 
     <dependencies>
-        <!-- Dependencia de Spring Boot Starter Web (sin versión, ya es gestionada por el BOM) -->
+        <!-- Dependencia de Spring Boot Starter Web -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -41,30 +41,34 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>8.0.26</version> <!-- Usa la versión que sea compatible con tu MySQL -->
+            <version>8.0.26</version> <!-- Ajusta la versión según lo que necesites -->
         </dependency>
     </dependencies>
 
     <build>
         <plugins>
-            <!-- Plugin de Spring Boot para la creación de JAR ejecutable -->
+            <!-- Plugin de Spring Boot para empaquetar como JAR ejecutable -->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <version>${spring-boot.version}</version> <!-- Usa la propiedad para la versión -->
+                <version>${spring-boot.version}</version> <!-- Usa la versión definida -->
             </plugin>
+
+            <!-- Si deseas configurar el archivo MANIFEST a mano (en caso de usar Maven Jar Plugin) -->
+            <!-- El plugin Spring Boot se encarga de crear el archivo ejecutable, pero esto es opcional -->
             <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-jar-plugin</artifactId>
-            <version>3.1.0</version>
-            <configuration>
-                <archive>
-                    <manifestEntries>
-                        <Main-Class>com.example.SpringBootApp</Main-Class> <!-- Asegúrate de poner la clase correcta -->
-                    </manifestEntries>
-                </archive>
-            </configuration>
-           </plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.1.0</version>
+                <configuration>
+                    <archive>
+                        <manifestEntries>
+                            <!-- Especificar la clase principal -->
+                            <Main-Class>com.example.SpringBootApp</Main-Class>
+                        </manifestEntries>
+                    </archive>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 </project>
