@@ -14,7 +14,7 @@
 
     <properties>
         <java.version>11</java.version>
-        <spring-boot.version>2.5.4</spring-boot.version>
+        <spring-boot.version>2.7.8</spring-boot.version> <!-- Actualiza la versión de Spring Boot -->
     </properties>
 
     <dependencyManagement>
@@ -41,7 +41,13 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>8.0.26</version>
+            <version>8.0.26</version> <!-- Usa la versión de MySQL que prefieras -->
+        </dependency>
+
+        <!-- Dependencia de Spring Boot Starter Data JPA (Si estás usando JPA) -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
     </dependencies>
 
@@ -51,7 +57,7 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <version>${spring-boot.version}</version> <!-- Versión de Spring Boot -->
+                <version>${spring-boot.version}</version>
                 <executions>
                     <execution>
                         <goals>
