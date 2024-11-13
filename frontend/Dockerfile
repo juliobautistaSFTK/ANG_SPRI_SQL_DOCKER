@@ -10,12 +10,14 @@ ENV NODE_OPTIONS=--openssl-legacy-provider
 COPY package*.json ./
 
 # Instala las dependencias de Angular
-RUN npm install
+RUN npm install -g @angular/cli
 
 # Copia el código fuente al contenedor
 COPY . .
 
 # Construye el proyecto de Angular
+RUN ng build --prod
+
 RUN npm run build
 
 # Usa una imagen base más ligera para producción
