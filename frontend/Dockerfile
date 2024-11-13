@@ -25,7 +25,7 @@ FROM nginx:alpine
 COPY --from=build /src/app/dist/ /usr/share/nginx/html
 
 # Expone el puerto 80 para que se pueda acceder a la app
-EXPOSE 80
+EXPOSE 8080
 
 # Inicia nginx en el contenedor
 CMD ["nginx", "-g", "daemon off;"]
