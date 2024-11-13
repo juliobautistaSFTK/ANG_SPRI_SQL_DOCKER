@@ -16,8 +16,6 @@ RUN npm install -g @angular/cli
 COPY . .
 
 # Construye el proyecto de Angular
-RUN ng build --prod
-
 RUN npm run build
 
 # Usa una imagen base más ligera para producción
