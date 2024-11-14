@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    "target": "es2015",                       // Especifica la versión de ECMAScript a la que se compilará el código.
+    "module": "esnext",                        // El módulo de salida será compatible con módulos ECMAScript.
+    "moduleResolution": "node",                // Utiliza la resolución de módulos estilo Node.js.
+    "lib": ["es2018", "dom"],                  // Incluir bibliotecas ES y DOM.
+    "declaration": false,                      // No genera archivos `.d.ts` de declaración.
+    "sourceMap": true,                         // Genera archivos `.map` para depuración.
+    "noUnusedLocals": true,                    // Muestra advertencias si existen variables locales no utilizadas.
+    "noUnusedParameters": true,                // Muestra advertencias si existen parámetros no utilizados en las funciones.
+    "strict": true,                            // Habilita todas las comprobaciones estrictas.
+    "skipLibCheck": true,                      // Omite la comprobación de tipos en las dependencias de bibliotecas.
+    "esModuleInterop": true,                   // Habilita la interoperabilidad de módulos ES con CommonJS.
+    "allowSyntheticDefaultImports": true,      // Permite importar módulos CommonJS con sintaxis de importación predeterminada.
+    "resolveJsonModule": true,                 // Permite importar archivos JSON como módulos.
+    "experimentalDecorators": true,            // Habilita el uso de decoradores.
+    "emitDecoratorMetadata": true,             // Genera metadatos para los decoradores.
+    "skipDefaultLibCheck": true,               // Omite la comprobación de tipos en las bibliotecas predeterminadas de TypeScript.
+    "downlevelIteration": true                 // Habilita la iteración compatible con ES5.
+  },
+  "angularCompilerOptions": {
+    "enableIvy": true                          // Habilita la compilación y renderizado con Ivy (el motor de renderizado de Angular).
+  },
+  "include": [
+    "src/**/*.ts"                              // Incluye todos los archivos `.ts` en el directorio `src` para la compilación.
+  ],
+  "exclude": [
+    "node_modules"                             // Excluye los archivos dentro de `node_modules` de la compilación.
+  ]
+}
