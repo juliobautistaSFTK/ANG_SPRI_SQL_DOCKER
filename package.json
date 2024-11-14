@@ -3,13 +3,13 @@
   "version": "0.0.1",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",                       // Inicia la aplicación en modo desarrollo
-    "build": "ng build",                       // Compila la aplicación para producción
-    "build:prod": "ng build --prod",           // Compila la aplicación para producción (con optimización)
-    "test": "ng test",                         // Ejecuta pruebas unitarias
-    "lint": "ng lint",                         // Ejecuta el linter para verificar el código
-    "e2e": "ng e2e",                           // Ejecuta pruebas de extremo a extremo
-    "docker:build": "docker build -t ang_spri_sql_docker ."  // Construcción de la imagen Docker
+    "start": "ng serve",                    
+    "build": "ng build",                   
+    "build:prod": "ng build --prod",         
+    "test": "ng test",                       
+    "lint": "ng lint",                  
+    "e2e": "ng e2e",                      
+    "docker:build": "docker build -t ang_spri_sql_docker ." 
   },
   "private": true,
   "dependencies": {
@@ -26,10 +26,10 @@
     "zone.js": "~0.11.5"
   },
   "devDependencies": {
-    "@angular/cli": "^15.0.0",                // CLI de Angular para interactuar con la app
-    "@angular/compiler-cli": "^15.0.0",       // Compiler CLI de Angular para el build
-    "@angular-devkit/build-angular": "^15.0.0",  // Paquete necesario para el builder del proyecto
-    "@types/node": "^18.11.18",                // Tipos para Node.js
-    "typescript": "~4.8.4"                     // Versión de TypeScript compatible
+    "@angular/cli": "^15.0.0",               
+    "@angular/compiler-cli": "^15.0.0",      
+    "@angular-devkit/build-angular": "^15.0.0",  
+    "@types/node": "^18.11.18",               
+    "typescript": "~4.8.4"                  
   }
 }
