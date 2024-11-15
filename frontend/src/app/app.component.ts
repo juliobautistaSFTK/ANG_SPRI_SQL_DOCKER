@@ -8,7 +8,7 @@ import { RouterOutlet } from '@angular/router';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
-export class FormularioComponent {
+export class AppComponent {
   clave: string = '';
   descripcion: string = '';
 
