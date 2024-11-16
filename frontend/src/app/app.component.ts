@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';  // Asegúrate de importar HttpErrorResponse
+import { HttpClientModule } from '@angular/common/http';
+
 
 
 @Component({
