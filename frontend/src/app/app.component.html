@@ -3,76 +3,108 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulario de Clave y Descripción</title>
+    <title>Consultar Descripción</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+            margin: 20px;
             background-color: #f4f4f4;
         }
-
-        .form-container {
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
             background-color: #fff;
             padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            width: 300px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-
-        h2 {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        label {
-            display: block;
-            margin: 10px 0 5px;
-        }
-
         input[type="text"] {
             width: 100%;
-            padding: 10px;
-            margin: 5px 0 15px;
+            padding: 8px;
+            margin-bottom: 10px;
             border: 1px solid #ccc;
             border-radius: 4px;
         }
-
         button {
-            width: 100%;
-            padding: 10px;
+            padding: 10px 15px;
             background-color: #4CAF50;
             color: white;
             border: none;
             border-radius: 4px;
-            font-size: 16px;
             cursor: pointer;
         }
-
-        button:hover {
-            background-color: #45a049;
+        button:disabled {
+            background-color: #ccc;
+        }
+        .loading {
+            font-size: 16px;
+            color: #555;
+            margin-top: 10px;
+        }
+        .description {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
 
-    <div class="form-container">
-        <h2>Formulario</h2>
-        <form action="" method="post">
-            <label for="clave">Clave:</label>
-            <input type="text" id="clave" name="clave" required placeholder="Ingresa la clave">
-
-            <label for="descripcion">Descripción:</label>
-            <input type="text" id="descripcion" name="descripcion">
-
-            <button type="submit">Enviar</button>
-        </form>
+<div class="container">
+    <h2>Consultar Descripción</h2>
+    <div>
+        <label for="clave">Clave:</label>
+        <input type="text" id="clave" placeholder="Ingrese la clave">
+        <button onclick="consultarDescripcion()" id="consultarBtn">Consultar</button>
     </div>
+
+    <div id="loading" class="loading" style="display: none;">Cargando...</div>
+    <div id="descripcion" class="description" style="display: none;"></div>
+    <div id="error" style="color: red; display: none;"></div>
+</div>
+
+<script>
+    // Función que consulta la API y muestra la descripción
+    function consultarDescripcion() {
+        const clave = document.getElementById('clave').value.trim();
+        const descripcionDiv = document.getElementById('descripcion');
+        const loadingDiv = document.getElementById('loading');
+        const errorDiv = document.getElementById('error');
+        const consultarBtn = document.getElementById('consultarBtn');
+
+        if (!clave) {
+            errorDiv.textContent = "Por favor, ingrese una clave.";
+            errorDiv.style.display = 'block';
+            return;
+        }
+
+        // Ocultamos cualquier mensaje previo
+        descripcionDiv.style.display = 'none';
+        errorDiv.style.display = 'none';
+        loadingDiv.style.display = 'block';
+        consultarBtn.disabled = true;
+
+        // Realizamos la consulta a la API (simulada)
+        fetch(`http://localhost:8080/descripcion/${clave}`)
+            .then(response => response.json())
+            .then(data => {
+                loadingDiv.style.display = 'none';
+                consultarBtn.disabled = false;
+                if (data.descripcion) {
+                    descripcionDiv.textContent = data.descripcion;
+                    descripcionDiv.style.display = 'block';
+                } else {
+                    errorDiv.textContent = "No se encontró descripción para esta clave.";
+                    errorDiv.style.display = 'block';
+                }
+            })
+            .catch(error => {
+                loadingDiv.style.display = 'none';
+                consultarBtn.disabled = false;
+                errorDiv.textContent = "Hubo un error al consultar la descripción. Intente de nuevo más tarde.";
+                errorDiv.style.display = 'block';
+            });
+    }
+</script>
 
 </body>
 </html>
-
