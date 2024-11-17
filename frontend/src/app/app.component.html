@@ -5,34 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulario de Clave y Descripción</title>
     <script>
+        // Objeto con las claves y sus respectivas descripciones
+        const clavesDescripcion = {
+            'clave1': 'Descripción de la clave 1: Esta es una descripción detallada.',
+            'clave2': 'Descripción de la clave 2: Aquí va la descripción para la clave 2.',
+            'clave3': 'Descripción de la clave 3: Descripción especial para la clave 3.',
+        };
+
         function obtenerDescripcion() {
-            // Obtener el valor de la clave
+            // Obtener la clave ingresada por el usuario
             const clave = document.getElementById('clave').value;
-            let descripcion = '';
+            // Buscar la descripción de la clave
+            const descripcion = clavesDescripcion[clave];
 
-            // Asignar una descripción según la clave
-            switch(clave) {
-                case '123':
-                    descripcion = 'Clave 123: Descripción para la clave 123.';
-                    break;
-                case '456':
-                    descripcion = 'Clave 456: Descripción para la clave 456.';
-                    break;
-                case '789':
-                    descripcion = 'Clave 789: Descripción para la clave 789.';
-                    break;
-                default:
-                    descripcion = 'Clave no encontrada. Por favor, ingrese una clave válida.';
+            // Mostrar la descripción o un mensaje de error si la clave no existe
+            if (descripcion) {
+                document.getElementById('descripcion').innerText = descripcion;
+            } else {
+                document.getElementById('descripcion').innerText = 'Clave no encontrada. Por favor, ingrese una clave válida.';
             }
-
-            // Mostrar la descripción en el div
-            document.getElementById('descripcion').innerText = descripcion;
         }
     </script>
 </head>
 <body>
 
-    <h1>Formulario de Clave</h1>
+    <h1>Formulario de Clave y Descripción</h1>
 
     <form onsubmit="event.preventDefault(); obtenerDescripcion();">
         <label for="clave">Ingrese una clave:</label>
@@ -40,7 +37,7 @@
         <button type="submit">Obtener Descripción</button>
     </form>
 
-    <div id="descripcion" style="margin-top: 20px; font-weight: bold;"></div>
+    <div id="descripcion" style="margin-top: 20px; font-weight: bold; color: #333;"></div>
 
 </body>
 </html>
