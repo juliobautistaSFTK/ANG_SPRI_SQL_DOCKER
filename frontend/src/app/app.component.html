@@ -1,7 +1,6 @@
 <div class="container">
   <h1>Formulario de Clave y Descripción</h1>
 
-  <!-- Formulario para ingresar la clave -->
   <form (ngSubmit)="obtenerDescripcion()">
     <label for="clave">Ingrese una clave:</label>
     <input 
@@ -11,14 +10,13 @@
       name="clave" 
       required 
       placeholder="Ingrese la clave" 
-    />  <!-- La etiqueta <input> debe cerrarse con /> -->
+    />
 
     <button type="submit">Obtener Descripción</button>
   </form>
 
   <br>
 
-  <!-- Área de texto para mostrar o editar la descripción -->
   <label for="descripcion">Descripción:</label>
   <textarea 
     id="descripcion" 
@@ -26,10 +24,9 @@
     rows="4" 
     cols="50" 
     placeholder="La descripción aparecerá aquí"
-  ></textarea> <!-- La etiqueta <textarea> debe cerrarse con </textarea> -->
+  ></textarea>
 
   <br><br>
 
-  <!-- Botón para actualizar o agregar la descripción -->
   <button (click)="actualizarDescripcion()">Actualizar Descripción</button>
 </div>
