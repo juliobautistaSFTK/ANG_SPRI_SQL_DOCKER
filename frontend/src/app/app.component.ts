@@ -1,18 +1,31 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';  // Necesario para [(ngModel)]
+import { Component } from '@angular/core';
 
-import { AppComponent } from './app.component';
-
-@NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule,
-    FormsModule  // Aquí debes importar FormsModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss']
 })
-export class AppModule { }
+export class AppComponent {
+  title = 'frontend';
+  clave: string = '';
+  descripcion: string = '';
+
+  // Objeto con las claves y sus descripciones
+  clavesDescripcion = {
+    'clave1': 'Descripción de la clave 1',
+    'clave2': 'Descripción de la clave 2',
+    'clave3': 'Descripción de la clave 3',
+  };
+
+  // Función para obtener la descripción según la clave
+  obtenerDescripcion() {
+    const descripcion = this.clavesDescripcion[this.clave];
+    this.descripcion = descripcion ? descripcion : 'Clave no encontrada';
+  }
+
+  // Función para actualizar la descripción
+  actualizarDescripcion() {
+    this.clavesDescripcion[this.clave] = this.descripcion;
+    alert('Descripción actualizada');
+  }
+}
