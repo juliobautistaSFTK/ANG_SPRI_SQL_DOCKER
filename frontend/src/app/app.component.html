@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulario de Clave y Descripción</title>
+    <title>Clave y Descripción</title>
     <script>
         // Objeto con las claves y sus respectivas descripciones
         const clavesDescripcion = {
@@ -12,17 +12,29 @@
             'clave3': 'Descripción de la clave 3: Descripción especial para la clave 3.',
         };
 
+        // Función para obtener la descripción según la clave ingresada
         function obtenerDescripcion() {
             // Obtener la clave ingresada por el usuario
             const clave = document.getElementById('clave').value;
             // Buscar la descripción de la clave
             const descripcion = clavesDescripcion[clave];
 
-            // Mostrar la descripción o un mensaje de error si la clave no existe
+            // Si la clave existe, mostrar la descripción, de lo contrario, mostrar un mensaje de error
             if (descripcion) {
-                document.getElementById('descripcion').innerText = descripcion;
+                document.getElementById('descripcion').value = descripcion; // Mostrar en el campo de descripción
             } else {
-                document.getElementById('descripcion').innerText = 'Clave no encontrada. Por favor, ingrese una clave válida.';
+                document.getElementById('descripcion').value = 'Clave no encontrada. Por favor, ingrese una clave válida.';
+            }
+        }
+
+        // Función para actualizar o agregar una nueva descripción a la clave
+        function actualizarDescripcion() {
+            const clave = document.getElementById('clave').value;
+            const nuevaDescripcion = document.getElementById('descripcion').value;
+
+            if (clave && nuevaDescripcion) {
+                clavesDescripcion[clave] = nuevaDescripcion; // Actualizar o agregar la descripción
+                alert('Descripción actualizada o agregada para la clave: ' + clave);
             }
         }
     </script>
@@ -37,7 +49,14 @@
         <button type="submit">Obtener Descripción</button>
     </form>
 
-    <div id="descripcion" style="margin-top: 20px; font-weight: bold; color: #333;"></div>
+    <br>
+
+    <label for="descripcion">Descripción:</label>
+    <textarea id="descripcion" rows="4" cols="50" readonly></textarea>
+
+    <br><br>
+
+    <button onclick="actualizarDescripcion()">Actualizar Descripción</button>
 
 </body>
 </html>
