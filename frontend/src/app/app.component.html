@@ -1,62 +1,34 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clave y Descripción</title>
-    <script>
-        // Objeto con las claves y sus respectivas descripciones
-        const clavesDescripcion = {
-            'clave1': 'Descripción de la clave 1: Esta es una descripción detallada.',
-            'clave2': 'Descripción de la clave 2: Aquí va la descripción para la clave 2.',
-            'clave3': 'Descripción de la clave 3: Descripción especial para la clave 3.',
-        };
+<div class="container">
+  <h1>Formulario de Clave y Descripción</h1>
 
-        // Función para obtener la descripción según la clave ingresada
-        function obtenerDescripcion() {
-            // Obtener la clave ingresada por el usuario
-            const clave = document.getElementById('clave').value;
-            // Buscar la descripción de la clave
-            const descripcion = clavesDescripcion[clave];
+  <!-- Formulario para ingresar la clave -->
+  <form (ngSubmit)="obtenerDescripcion()">
+    <label for="clave">Ingrese una clave:</label>
+    <input 
+      type="text" 
+      id="clave" 
+      [(ngModel)]="clave"  <!-- Two-way binding para la clave -->
+      name="clave" 
+      required 
+      placeholder="Ingrese la clave" 
+    />
+    <button type="submit">Obtener Descripción</button>
+  </form>
 
-            // Si la clave existe, mostrar la descripción, de lo contrario, mostrar un mensaje de error
-            if (descripcion) {
-                document.getElementById('descripcion').value = descripcion; // Mostrar en el campo de descripción
-            } else {
-                document.getElementById('descripcion').value = 'Clave no encontrada. Por favor, ingrese una clave válida.';
-            }
-        }
+  <br>
 
-        // Función para actualizar o agregar una nueva descripción a la clave
-        function actualizarDescripcion() {
-            const clave = document.getElementById('clave').value;
-            const nuevaDescripcion = document.getElementById('descripcion').value;
+  <!-- Área de texto para mostrar o editar la descripción -->
+  <label for="descripcion">Descripción:</label>
+  <textarea 
+    id="descripcion" 
+    [(ngModel)]="descripcion"  <!-- Two-way binding para la descripción -->
+    rows="4" 
+    cols="50" 
+    placeholder="La descripción aparecerá aquí"
+  ></textarea>
 
-            if (clave && nuevaDescripcion) {
-                clavesDescripcion[clave] = nuevaDescripcion; // Actualizar o agregar la descripción
-                alert('Descripción actualizada o agregada para la clave: ' + clave);
-            }
-        }
-    </script>
-</head>
-<body>
+  <br><br>
 
-    <h1>Formulario de Clave y Descripción</h1>
-
-    <form onsubmit="event.preventDefault(); obtenerDescripcion();">
-        <label for="clave">Ingrese una clave:</label>
-        <input type="text" id="clave" name="clave" required>
-        <button type="submit">Obtener Descripción</button>
-    </form>
-
-    <br>
-
-    <label for="descripcion">Descripción:</label>
-    <textarea id="descripcion" rows="4" cols="50" readonly></textarea>
-
-    <br><br>
-
-    <button onclick="actualizarDescripcion()">Actualizar Descripción</button>
-
-</body>
-</html>
+  <!-- Botón para actualizar o agregar la descripción -->
+  <button (click)="actualizarDescripcion()">Actualizar Descripción</button>
+</div>
