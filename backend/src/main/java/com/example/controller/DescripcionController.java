@@ -32,6 +32,6 @@ public class DescripcionController {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return "{ \"descripcion\": \"" + descripcion= + "\" }";
+        return "{ \"descripcion\": \"" + descripcion + "\" }";
     }
 }
