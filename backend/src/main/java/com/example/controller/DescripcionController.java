@@ -20,18 +20,18 @@ public class DescripcionController {
 
     @GetMapping("/descripcion/{clave}")
     public String getDescripcion(@PathVariable int clave) {
-        String descripcion = "No encontrada";
+        String descripcion = "No encontrada!";
         try (Connection connection = dataSource.getConnection()) {
             String sql = "SELECT descripcion FROM distancia WHERE clave = ?";
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setInt(1, clave);
             ResultSet resultSet = statement.executeQuery();
             if (resultSet.next()) {
-                descripcion = resultSet.getString("descripcion=");
+                descripcion = resultSet.getString("descripcion");
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return "{ \"descripcion\": \"" + descripcion + "\" }";
+        return "{ \"descripcion\": \"" + descripcion= + "\" }";
     }
 }
