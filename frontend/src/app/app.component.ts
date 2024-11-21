@@ -9,15 +9,15 @@ import { MyService } from './http.service';
 export class AppComponent implements OnInit {
   
   public data: any;
+  public clave: number=1;
 
   constructor(
     private readonly myService: MyService
   ){}
   
   ngOnInit(): void {
-    this.myService.getData().then(data => {
+    this.myService.getData(this.clave).then(data => {
       this.data = data;
     });
   }
-
 }
