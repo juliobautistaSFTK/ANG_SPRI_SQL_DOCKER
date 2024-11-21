@@ -12,7 +12,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 @RestController
-@CrossOrigin(origins = "http://127.0.0.1:4200")
+@CrossOrigin(origins = "http://127.0.0.1:4201")
 public class DescripcionController {
 
     @Autowired
