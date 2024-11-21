@@ -14,7 +14,7 @@ export class MyService {
     }
 
     getData() {
-        return lastValueFrom(this.http.get<any>(`${this.url}getData`));
+        return lastValueFrom(this.http.get<any>(`${this.url}2`));
     }
 
 }
