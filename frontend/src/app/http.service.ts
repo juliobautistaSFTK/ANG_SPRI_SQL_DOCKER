@@ -13,8 +13,8 @@ export class MyService {
         this.url = 'http://localhost:8080/descripcion/';
     }
 
-    getData() {
-        return lastValueFrom(this.http.get<any>(`${this.url}2`));
+    getData(clave:number) {
+        return lastValueFrom(this.http.get<any>(`${this.url}${clave}`));
     }
 
 }
