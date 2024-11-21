@@ -10,7 +10,7 @@ export class MyService {
     constructor(
         private readonly http: HttpClient
     ) {
-        this.url = 'http://localhost:8080/controller/';
+        this.url = 'http://localhost:8080/descripcion/';
     }
 
     getData() {
